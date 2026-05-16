@@ -1,0 +1,115 @@
+/* Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #050505;
+    color: #ffffff;
+    cursor: none; /* Hide default cursor */
+    overflow-x: hidden;
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00FFFF;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 255, 255, 0.5);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Cursor Hover State */
+.cursor-outline.hovering {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-color: transparent;
+}
+
+/* Navbar Scrolled State */
+nav.scrolled {
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Rotating Text in Hero */
+.rotating-text-wrapper {
+    animation: rotateText 10s infinite cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@keyframes rotateText {
+    0%, 20% { transform: translateY(0); }
+    25%, 45% { transform: translateY(-4rem); } /* Assuming h-16 which is 4rem */
+    50%, 70% { transform: translateY(-8rem); }
+    75%, 95% { transform: translateY(-12rem); }
+    100% { transform: translateY(-16rem); }
+}
+
+@media (max-width: 768px) {
+    @keyframes rotateText {
+        0%, 20% { transform: translateY(0); }
+        25%, 45% { transform: translateY(-3rem); } /* h-12 is 3rem */
+        50%, 70% { transform: translateY(-6rem); }
+        75%, 95% { transform: translateY(-9rem); }
+        100% { transform: translateY(-12rem); }
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00FFFF;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+    background: rgba(25, 25, 25, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+}
+
+/* Glow utilities */
+.glow-blue {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.glow-purple {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+}
+
+/* Utilities for hiding before animation */
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
